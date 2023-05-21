@@ -7,37 +7,68 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+final class ViewController: UIViewController {
     
-
-    @IBOutlet var RedLightView: UIView!
-    @IBOutlet var YellowLightView: UIView!
-    @IBOutlet var GreenLightView: UIView!
+    @IBOutlet var redLightView: UIView!
+    @IBOutlet var yellowLightView: UIView!
+    @IBOutlet var greenLightView: UIView!
     
-    @IBOutlet var TrafficLightsButton: UIButton!
+    @IBOutlet var trafficLightsButton: UIButton!
+    
+    private var currentLight = CurrentLight.red
+    private let lightsOn: CGFloat = 1
+    private let lightsOff: CGFloat = 0.3
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        RedLightView.layer.cornerRadius = 60
-        YellowLightView.layer.cornerRadius = 60
-        GreenLightView.layer.cornerRadius = 60
-        RedLightView.alpha = 0.3
-        YellowLightView.alpha = 0.3
-        GreenLightView.alpha = 0.3
-        //через пропорцию?
-    }
 
+        
+        trafficLightsButton.layer.cornerRadius = 20
+        
+        redLightView.alpha = lightsOff
+        yellowLightView.alpha = lightsOff
+        greenLightView.alpha = lightsOff
+        
+
+        
+        
+    }
+    
+    override func viewWillLayoutSubviews() {
+        redLightView.layer.cornerRadius = redLightView.frame.width / 2
+        yellowLightView.layer.cornerRadius = yellowLightView.frame.width / 2
+        greenLightView.layer.cornerRadius = yellowLightView.frame.width / 2
+    }
 
     
-    @IBAction func TrafficLightsButtonAcion() {
-        if RedLightView.alpha == 0.3 && GreenLightView.alpha == 0.3 && YellowLightView.alpha == 0.3 {
-            RedLightView.alpha = 1
-            print("button tapped")
+
+    
+    @IBAction func trafficLightsVuttonAction() {
+        if trafficLightsButton.currentTitle == "START" {
+            trafficLightsButton.setTitle("NEXT", for: .normal)
         }
-        else {
-            YellowLightView.alpha = 1
-            print("no")
-        }
+        
+                switch currentLight {
+                case .red:
+                    greenLightView.alpha = lightsOff
+                    yellowLightView.alpha = lightsOff
+                    redLightView.alpha = lightsOn
+                case .yellow:
+                    greenLightView.alpha = lightsOff
+                    yellowLightView.alpha = lightsOn
+                    redLightView.alpha = lightsOff
+                case .green:
+                    greenLightView.alpha = lightsOn
+                    yellowLightView.alpha = lightsOff
+                    redLightView.alpha = lightsOff
+                }
+    }
+    
+}
+
+// MARK: - CurrentLight
+extension ViewController {
+   private enum CurrentLight {
+        case red, yellow, green
     }
 }
-// задать зависимость цвета от кнопки для первого шага?

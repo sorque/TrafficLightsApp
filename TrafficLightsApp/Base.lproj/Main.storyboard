@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -13,41 +13,55 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TrafficLightsApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wLf-V7-2Gq">
-                                <rect key="frame" x="136" y="84" width="120" height="120"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemRedColor"/>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eEK-LE-8aN">
-                                <rect key="frame" x="136" y="240" width="120" height="120"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemYellowColor"/>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XYv-bl-oEB">
-                                <rect key="frame" x="136" y="399" width="120" height="120"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemGreenColor"/>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sXS-iX-cEw">
-                                <rect key="frame" x="158" y="683" width="76" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="37" translatesAutoresizingMaskIntoConstraints="NO" id="roj-kv-2gy">
+                                <rect key="frame" x="148.5" y="20" width="78" height="309"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wLf-V7-2Gq">
+                                        <rect key="frame" x="0.0" y="0.0" width="78" height="78.5"/>
+                                        <color key="backgroundColor" systemColor="systemRedColor"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eEK-LE-8aN">
+                                        <rect key="frame" x="0.0" y="115.5" width="78" height="78"/>
+                                        <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XYv-bl-oEB">
+                                        <rect key="frame" x="0.0" y="230.5" width="78" height="78.5"/>
+                                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sXS-iX-cEw">
+                                <rect key="frame" x="121" y="546.5" width="133" height="34.5"/>
                                 <buttonConfiguration key="configuration" style="tinted" title="START"/>
                                 <connections>
-                                    <action selector="TrafficLightsButtonAcion" destination="BYZ-38-t0r" eventType="touchUpInside" id="XMC-B6-WVN"/>
+                                    <action selector="trafficLightsVuttonAction" destination="BYZ-38-t0r" eventType="touchUpInside" id="RA1-yI-vw1"/>
                                 </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="sXS-iX-cEw" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4Hv-GO-E6f"/>
+                            <constraint firstItem="eEK-LE-8aN" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.117371" id="B5S-fP-tMB"/>
+                            <constraint firstItem="wLf-V7-2Gq" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.117371" id="Buh-Np-G1N"/>
+                            <constraint firstItem="roj-kv-2gy" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="VDL-Z8-lSF"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="sXS-iX-cEw" secondAttribute="bottom" constant="86" id="ask-ki-zPP"/>
+                            <constraint firstItem="XYv-bl-oEB" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="25:213" id="c6U-eD-8UU"/>
+                            <constraint firstItem="eEK-LE-8aN" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="25:213" id="co3-Rw-c6h"/>
+                            <constraint firstItem="XYv-bl-oEB" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.117371" id="iee-T0-7XL"/>
+                            <constraint firstItem="roj-kv-2gy" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="kQ5-8B-XIC"/>
+                            <constraint firstItem="wLf-V7-2Gq" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="25:213" id="sAz-d9-eKB"/>
+                            <constraint firstItem="sXS-iX-cEw" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="1:5" id="vMM-W4-Cn4"/>
+                        </constraints>
                     </view>
                     <connections>
-                        <outlet property="GreenLightView" destination="XYv-bl-oEB" id="R46-Nf-QD2"/>
-                        <outlet property="RedLightView" destination="wLf-V7-2Gq" id="2SZ-aC-JDq"/>
-                        <outlet property="TrafficLightsButton" destination="sXS-iX-cEw" id="bpv-9W-t7R"/>
-                        <outlet property="YellowLightView" destination="eEK-LE-8aN" id="Nxj-4o-dqw"/>
+                        <outlet property="greenLightView" destination="XYv-bl-oEB" id="R46-Nf-QD2"/>
+                        <outlet property="redLightView" destination="wLf-V7-2Gq" id="2SZ-aC-JDq"/>
+                        <outlet property="trafficLightsButton" destination="sXS-iX-cEw" id="50b-sm-2U6"/>
+                        <outlet property="yellowLightView" destination="eEK-LE-8aN" id="Nxj-4o-dqw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
